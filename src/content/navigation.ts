@@ -19,4 +19,10 @@ export const navigation = [
     title: "Contact",
     href: "#footer",
   },
+
+  {
+    title: "Resume",
+    href: "/CV-1122.pdf",
+  },
+  
 ];

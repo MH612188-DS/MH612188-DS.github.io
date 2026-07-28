@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 import Logo from "@/components/ui/Logo";
-import { Button } from "@/components/ui/button";
 import { navigation } from "@/content/navigation";
 
 export default function Navbar() {
@@ -31,26 +30,27 @@ export default function Navbar() {
         <Logo />
 
         <nav className="hidden gap-10 lg:flex">
-          {navigation.map((item) => (
-            <a
-              key={item.title}
-              href={item.href}
-              className="text-slate-300 transition-colors hover:text-white"
-            >
-              {item.title}
-            </a>
-          ))}
-        </nav>
+          {navigation.map((item) => {
+            const isExternal =
+              item.href.startsWith("http") || item.href.endsWith(".pdf");
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg">
-                Resume
-              </Button>
-            </a>
+            return (
+              <a
+                key={item.title}
+                href={item.href}
+                {...(isExternal
+                  ? {
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    }
+                  : {})}
+                className="text-slate-300 transition-colors duration-300 hover:text-blue-400"
+              >
+                {item.title}
+              </a>
+            );
+          })}
+        </nav>
       </div>
     </header>
   );
