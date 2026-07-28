@@ -1,40 +1,89 @@
-import { profile } from "@/data/profile";
+import FadeIn from "@/components/ui/FadeIn";
+import GridBackground from "@/components/ui/GridBackground";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { profile } from "@/content/profile";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#0F172A] text-white">
-      <div className="max-w-5xl text-center px-6">
+    <section
+      id="hero"
+      className="relative flex min-h-screen items-center overflow-hidden bg-slate-950"
+    >
+      <GridBackground />
 
-        <h1 className="text-6xl font-bold">
-          {profile.name}
-        </h1>
+      <div className="relative z-10 mx-auto max-w-7xl px-8 py-32">
+        <FadeIn>
+          <Badge className="mb-8 bg-emerald-600 text-white hover:bg-emerald-600">
+            ● Research Active
+          </Badge>
+        </FadeIn>
 
-        <h2 className="mt-6 text-3xl text-blue-400">
-          {profile.title}
-        </h2>
+        <FadeIn delay={0.1}>
+          <h1 className="text-6xl font-black tracking-tight text-white md:text-8xl">
+            {profile.name}
+          </h1>
+        </FadeIn>
 
-        <p className="mt-8 text-xl text-gray-300 max-w-3xl mx-auto">
-          {profile.tagline}
-        </p>
+        <FadeIn delay={0.2}>
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-xl text-slate-300 md:text-3xl">
+            <span>{profile.role}</span>
+            <span className="text-slate-600">•</span>
+            <span>{profile.subtitle}</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-blue-400">{profile.specialization}</span>
+          </div>
+        </FadeIn>
 
-        <div className="mt-12 flex justify-center gap-6">
+        <FadeIn delay={0.3}>
+          <p className="mt-8 max-w-3xl text-lg leading-9 text-slate-400 md:text-xl">
+            {profile.tagline}
+          </p>
+        </FadeIn>
 
-          <a
-            href={profile.github}
-            className="rounded-lg bg-blue-600 px-6 py-3 hover:bg-blue-700 transition"
-          >
-            GitHub
-          </a>
+        <FadeIn delay={0.4}>
+          <div className="mt-12 flex flex-wrap gap-4">
+            <a href={profile.resume}>
+              <Button size="lg">
+                Download CV
+              </Button>
+            </a>
 
-          <a
-            href={profile.linkedin}
-            className="rounded-lg border border-blue-500 px-6 py-3 hover:bg-blue-500 transition"
-          >
-            LinkedIn
-          </a>
+            <a href="#research">
+              <Button variant="outline" size="lg">
+                View Research
+              </Button>
+            </a>
+          </div>
+        </FadeIn>
 
-        </div>
+        <FadeIn delay={0.5}>
+          <div className="mt-14">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">
+              Research Areas
+            </p>
 
+            <div className="flex flex-wrap gap-3">
+              {profile.interests.map((interest) => (
+                <Badge
+                  key={interest}
+                  variant="secondary"
+                  className="px-4 py-2"
+                >
+                  {interest}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.6}>
+          <div className="mt-16 inline-flex rounded-full border border-blue-500/30 bg-blue-600/10 px-6 py-3">
+            <span className="font-medium text-blue-300">
+              Current Focus: {profile.currentFocus}
+            </span>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
