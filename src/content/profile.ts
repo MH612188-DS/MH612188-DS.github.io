@@ -1,9 +1,9 @@
 export const profile = {
   name: "Muhammad Haris",
 
-  role: "Robotics Engineer",
+  role: "AI/ML Engineer",
 
-  subtitle: "AI Researcher",
+  subtitle: "Generative AI, Agentic Systems & Python Backend",
 
   specialization: "Generative AI",
 
@@ -12,7 +12,7 @@ export const profile = {
 
   location: "Islamabad, Pakistan",
 
-  email: "mharis6673@gmail.com",
+  email: "mailto:mharis6673@gmail.com",
 
   github: "https://github.com/MH612188-DS",
 
