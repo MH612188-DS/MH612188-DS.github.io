@@ -12,11 +12,11 @@ export const profile = {
 
   location: "Islamabad, Pakistan",
 
-  email: "YOUR_EMAIL",
+  email: "mharis6673@gmail.com",
 
   github: "https://github.com/MH612188-DS",
 
-  linkedin: "YOUR_LINKEDIN",
+  linkedin: "https://www.linkedin.com/in/haris6219/",
 
   resume: "/resume.pdf",
 
